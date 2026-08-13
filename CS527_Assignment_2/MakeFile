@@ -1,0 +1,37 @@
+# Makefile for CS527 Lab 2 Simulator
+
+# The compiler to use
+CC = gcc
+
+# Compiler flags (-Wall enables all warnings, -g adds debugging info)
+CFLAGS = -Wall -g
+
+# The name of the final executable
+TARGET = simulator.exe
+
+# The object files required to build the target
+OBJS = main.o compiler.o memory.o processor.o
+
+# Default target: builds the executable
+all: $(TARGET)
+
+# Rule to link all object files together into the final executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+# Rules to compile individual source files into object files (.o)
+main.o: main.c compiler.h memory.h processor.h
+	$(CC) $(CFLAGS) -c main.c
+
+compiler.o: compiler.c compiler.h
+	$(CC) $(CFLAGS) -c compiler.c
+
+memory.o: memory.c memory.h
+	$(CC) $(CFLAGS) -c memory.c
+
+processor.o: processor.c processor.h
+	$(CC) $(CFLAGS) -c processor.c
+
+# Rule to clean up compiled files so you can start fresh
+clean:
+	rm -f $(OBJS) $(TARGET)

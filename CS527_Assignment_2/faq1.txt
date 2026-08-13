@@ -1,0 +1,17 @@
+% faq1.txt - Sum of N numbers (fixed at program time)
+% We hardcode N to 4. Array starts at address 0.
+x1 = 4
+x2 = 0
+x3 = 0
+
+sumloop
+x5 = x1 - 0
+BEQ endsum
+x6 = [x3]
+x2 = x2 + x6
+x3 = x3 + 4
+x1 = x1 - 1
+BAL sumloop
+
+endsum
+[x3] = x2

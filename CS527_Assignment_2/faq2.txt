@@ -1,0 +1,26 @@
+% faq2.txt - Multiply two complex numbers
+% Reads a, b, c, d from memory addresses 0, 4, 8, 12
+x10 = 0
+x1 = [x10]
+x10 = 4
+x2 = [x10]
+x10 = 8
+x3 = [x10]
+x10 = 12
+x4 = [x10]
+
+% Real Part: (ac - bd)
+x5 = x1 * x3
+x6 = x2 * x4
+x7 = x5 - x6
+
+% Imaginary Part: (ad + bc)
+x8 = x1 * x4
+x9 = x2 * x3
+x11 = x8 + x9
+
+% Store Real part at 16, Imaginary at 20
+x10 = 16
+[x10] = x7
+x10 = 20
+[x10] = x11

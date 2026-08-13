@@ -1,0 +1,32 @@
+% --- FIR FILTER PROGRAM ---
+% Initialize Pointers
+x10 = 0
+x1 = [x10]     % (Requirement a): Read N from address 0x0
+x2 = 4         % (Requirement a): Input array starts at address 4
+x3 = 16        % (Requirement b): Output array starts at 0x10 (16 in decimal)
+x4 = 0         % Set Previous_Input to 0 for the very first run
+
+firloop
+% Check if we have processed all N elements
+x11 = x1 - 0
+BEQ endfir
+
+% Read Current_Input from memory
+x5 = [x2]
+
+% (Requirement c): Apply Constant Weights (W0 = 5, W1 = 2)
+x6 = x5 * 5    % T1 = Current_Input * 5
+x7 = x4 * 2    % T2 = Previous_Input * 2
+x8 = x6 + x7   % Final Filtered Output = T1 + T2
+
+% Write Output to memory and setup for next loop
+[x3] = x8      % Store Output
+x4 = x5 + 0       % Shift Current_Input to become Previous_Input
+x2 = x2 + 4    % Move input pointer forward by 4 bytes
+x3 = x3 + 4    % Move output pointer forward by 4 bytes
+x1 = x1 - 1    % Decrease N counter
+
+BAL firloop
+
+endfir
+x10 = 0

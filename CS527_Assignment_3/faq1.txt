@@ -1,0 +1,23 @@
+x10 = 8
+Write x10 0
+
+Read x1 0
+x2 = x1 * 4
+x3 = 4
+x4 = x3 + x2
+x5 = x4 + x2
+
+loopback:
+x6 = x1 - 0
+BEQ exit
+VLD v1 x3
+VLD v2 x4
+VADD v3 v1 v2
+VST v3 x5
+x3 = x3 + 32
+x4 = x4 + 32
+x5 = x5 + 32
+x1 = x1 - 8
+BAL loopback
+
+exit:

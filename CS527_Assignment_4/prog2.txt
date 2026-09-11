@@ -1,0 +1,7 @@
+x1 = 12
+x2 = 3
+x3 = x1 * x2
+Print x3       % <--- Prints 36 (Hex: 0x24)
+x4 = x3 + 14
+Print x4       % <--- Prints 50 (Hex: 0x32)
+Write x4 0

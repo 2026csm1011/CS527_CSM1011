@@ -1,0 +1,27 @@
+x10 = 16
+Write x10 0
+
+Read x1 0
+x1 = x1 - 8
+x2 = 0
+
+x7 = 4
+VLD v1 x7
+x3 = 36
+
+x4 = 128
+x4 = x4 * 2
+
+firloop:
+x6 = x1 - x2
+BEQ exitfir
+VLD v2 x3
+VMUL v3 v1 v2
+VSUM x8 v3
+SST x8 x4
+x3 = x3 + 4
+x4 = x4 + 4
+x2 = x2 + 1
+BAL firloop
+
+exitfir:

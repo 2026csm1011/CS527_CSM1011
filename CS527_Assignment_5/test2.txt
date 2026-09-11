@@ -1,0 +1,13 @@
+% test2.txt - MMU Boundary & Subtraction Test
+x1 = 0
+x2 = 512
+v1 = [x1]
+v2 = v1 - 5
+[x2] = v2
+
+% Data Movement & Scalar Math
+x3 = 250
+x4 = x3
+x5 = x4 + 5
+print x4
+print x5

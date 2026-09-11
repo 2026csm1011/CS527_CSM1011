@@ -1,0 +1,11 @@
+CC = gcc
+CFLAGS = -Wall
+TARGET = simulator
+
+all: $(TARGET)
+
+$(TARGET): main.c compiler.c memory.c processor.c os.c
+	$(CC) $(CFLAGS) main.c compiler.c memory.c processor.c os.c -o $(TARGET)
+
+clean:
+	rm -f *.byte *.log simulator.exe simulator

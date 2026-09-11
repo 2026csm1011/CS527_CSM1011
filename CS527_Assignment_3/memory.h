@@ -1,0 +1,11 @@
+#ifndef MEMORY_H
+#define MEMORY_H
+
+// Updated to match the exact sizes in memory.c
+extern unsigned char Instruction[256];
+extern unsigned char Data[4096];
+
+void initialize();
+void finalize();
+
+#endif

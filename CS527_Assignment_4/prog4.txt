@@ -1,0 +1,7 @@
+x1 = 100
+x2 = 100
+x3 = x1 + x2
+Print x3       % <--- Prints 200 (Hex: 0xC8)
+x4 = x3 + 55
+Print x4       % <--- Prints 255 (Hex: 0xFF)
+Write x4 0

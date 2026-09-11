@@ -1,11 +1,15 @@
 CC = gcc
 CFLAGS = -Wall
-TARGET = simulator
+TARGET = simulator.exe
+
+# Sabhi files ko yahan declare kar diya
+SRCS = main.c compiler.c memory.c processor.c os.c
+HEADERS = os.h compiler.h processor.h memory.h
 
 all: $(TARGET)
 
-$(TARGET): main.c compiler.c memory.c processor.c os.c
-	$(CC) $(CFLAGS) main.c compiler.c memory.c processor.c os.c -o $(TARGET)
+$(TARGET): $(SRCS) $(HEADERS)
+	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
 clean:
 	rm -f *.byte *.log simulator.exe simulator
